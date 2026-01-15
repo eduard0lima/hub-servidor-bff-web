@@ -4,6 +4,24 @@ server:
 spring:
   application:
     name: hub-servidor-bff-web
+  datasource:
+    url: jdbc:postgresql://localhost:5432/hub_servidor
+    username: hub
+    password: hub
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    validate-on-migrate: true
+    schemas: public
+    locations: classpath:db/migration
+    clean-disabled: true
   security:
     oauth2:
       resourceserver:
