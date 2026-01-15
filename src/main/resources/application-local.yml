@@ -1,0 +1,15 @@
+logging:
+  level:
+    root: INFO
+
+app:
+  cors:
+    allowed-origins:
+      - "http://localhost:4200"
+      - "http://localhost:5173"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus,env,configprops
