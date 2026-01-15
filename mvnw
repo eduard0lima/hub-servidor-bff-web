@@ -18,7 +18,7 @@ while [ -h "$PRG" ]; do
 done
 
 SAVED_PWD=`pwd`
-BASEDIR=`dirname "$PRG"`/..;
+BASEDIR=`dirname "$PRG"`;
 BASEDIR=`cd "$BASEDIR" && pwd`
 
 if [ -z "$MAVEN_PROJECTBASEDIR" ]; then
