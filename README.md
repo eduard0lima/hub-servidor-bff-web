@@ -4,6 +4,16 @@ BFF REST do Hub do Servidor (JFCE) para o hub-servidor-web.
 
 ## Como rodar
 
+### Perfil local (H2 em memória)
+
+```bash
+./mvnw spring-boot:run -Dspring-boot.run.profiles=local
+```
+
+O banco local fica persistido em `target/data` e pode ser acessado via console H2 em `http://localhost:8080/h2-console`.
+
+### Perfil padrão (PostgreSQL)
+
 ```bash
 ./mvnw spring-boot:run
 ```
@@ -12,6 +22,12 @@ Se preferir, use o Maven instalado:
 
 ```bash
 mvn spring-boot:run
+```
+
+### PostgreSQL via Docker (opcional)
+
+```bash
+docker run --name hub-servidor-postgres -e POSTGRES_DB=hub_servidor -e POSTGRES_USER=hub -e POSTGRES_PASSWORD=hub -p 5432:5432 -d postgres:16
 ```
 
 ## Configuração necessária

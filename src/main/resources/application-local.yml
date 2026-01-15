@@ -2,6 +2,28 @@ logging:
   level:
     root: INFO
 
+spring:
+  datasource:
+    url: jdbc:h2:file:./target/data/hub_servidor;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH;AUTO_SERVER=TRUE;SCHEMA=public
+    username: sa
+    password: sa
+    driver-class-name: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    validate-on-migrate: true
+    schemas: public
+    locations: classpath:db/migration
+    clean-disabled: false
+
 app:
   cors:
     allowed-origins:
