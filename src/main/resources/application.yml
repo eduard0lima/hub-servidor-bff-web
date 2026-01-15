@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: hub-servidor-bff-web
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://issuer.example.com/realms/hub
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+
+app:
+  cors:
+    allowed-origins:
+      - "http://localhost:4200"
+  clients:
+    core:
+      base-url: http://hub-servidor-core:8080
