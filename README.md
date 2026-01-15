@@ -10,6 +10,8 @@ BFF REST do Hub do Servidor (JFCE) para o hub-servidor-web.
 ./mvnw spring-boot:run -Dspring-boot.run.profiles=local
 ```
 
+O banco local fica persistido em `target/data` e pode ser acessado via console H2 em `http://localhost:8080/h2-console`.
+
 ### Perfil padrão (PostgreSQL)
 
 ```bash
