@@ -11,10 +11,10 @@
     </parent>
 
     <groupId>br.jus.jfce.hubservidor</groupId>
-    <artifactId>hub-servidor-bff-web</artifactId>
+    <artifactId>hub-servidor-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>hub-servidor-bff-web</name>
-    <description>BFF REST do Hub do Servidor (JFCE) para o hub-servidor-web.</description>
+    <name>hub-servidor-api</name>
+    <description>API REST do Hub do Servidor (JFCE) para o hub-servidor-web.</description>
     <packaging>jar</packaging>
 
     <properties>

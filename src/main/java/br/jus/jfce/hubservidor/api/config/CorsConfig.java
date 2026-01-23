@@ -1,0 +1,36 @@
+package br.jus.jfce.hubservidor.api.config;
+
+import java.util.List;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+@Configuration
+@EnableConfigurationProperties(CorsConfig.CorsProperties.class)
+public class CorsConfig {
+
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource(CorsProperties corsProperties) {
+        CorsConfiguration configuration = new CorsConfiguration();
+        List<String> allowedOrigins = corsProperties.allowedOrigins() == null
+            ? List.of()
+            : corsProperties.allowedOrigins();
+        configuration.setAllowedOrigins(allowedOrigins);
+        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
+        configuration.setAllowedHeaders(List.of("Authorization", "Content-Type", "X-Correlation-Id"));
+        configuration.setExposedHeaders(List.of("X-Correlation-Id"));
+        configuration.setAllowCredentials(true);
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
+    }
+
+    @ConfigurationProperties(prefix = "app.cors")
+    public record CorsProperties(List<String> allowedOrigins) {
+    }
+}
