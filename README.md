@@ -1,4 +1,4 @@
-# hub-servidor-bff-web
+# hub-servidor-api
 
 BFF REST do Hub do Servidor (JFCE) para o hub-servidor-web.
 
